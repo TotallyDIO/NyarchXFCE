@@ -425,6 +425,7 @@ light-locker
 lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
+lightdm-webkit2-greeter 
 
 # Calamares make dependencies
 dmidecode
