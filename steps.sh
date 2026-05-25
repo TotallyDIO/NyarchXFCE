@@ -17,7 +17,7 @@ MYUSRPASSWD="live"
 RTPASSWD="toor"
 # Pick a root password
 
-MYHOSTNM="ezarcher"
+MYHOSTNM="nyarchlinux"
 # Pick a hostname for the machine
 
 # ----------------------------------------
