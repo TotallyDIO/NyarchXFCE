@@ -67,16 +67,6 @@ rm -r ./ezreleng/syslinux
 rm -r ./ezreleng/airootfs/etc/mkinitcpio.conf.d
 }
 
-# Copy ezrepo to opt
-cpezrepo () {
-cp -r ./opt/ezrepo/ /opt/
-}
-
-# Remove ezrepo from opt
-rmezrepo () {
-rm -r /opt/ezrepo
-}
-
 # Remove auto-login, cloud-init, hyper-v, iwd, sshd, & vmware services
 rmunitsd () {
 rm -r ./ezreleng/airootfs/etc/systemd/system/cloud-init.target.wants
@@ -201,7 +191,6 @@ prepreqs
 cleanup
 cpezreleng
 addnmlinks
-cpezrepo
 rmunitsd
 cpmyfiles
 sethostname
@@ -210,7 +199,6 @@ crtgroup
 crtshadow
 crtgshadow
 runmkarchiso
-rmezrepo
 
 
 # Disclaimer:
