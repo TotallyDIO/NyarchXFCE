@@ -11,7 +11,7 @@ flatpak mask "org.freedesktop.Platform.GL.nvidia*"
 flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 flatpak --remove mask "org.freedesktop.Platform.GL.nvidia*"
 
-# Apply Nyarch Copy - IDK what this is supposed to do with XFCE
-wget https://nyarchlinux.moe/NyarchCopyKDE.tar.gz && tar -xvf NyarchCopyKDE.tar.gz && cd NyarchCopyKDE && bash ./apply_airoot.sh && rm -rf NyarchCopy*
+# Apply Nyarch Copy KDE
+wget https://nyarchlinux.moe/NyarchCopyKDE.tar.gz && tar -xvf NyarchCopyKDE.tar.gz && cd NyarchCopyKDE && bash ./apply_airoot.sh
 
 chmod +x /etc/xdg/autostart/autostart.sh
