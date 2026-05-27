@@ -3,6 +3,15 @@
 # Ezarcher custom package list
 #
 
+# Display Manager
+sddm
+sddm-kcm
+kpmcore
+xcb-util-cursor
+xcb-util
+qt6
+xorg
+
 # Nyarch
 nyarch-keyring
 nyarch-mirrorlist
@@ -433,12 +442,6 @@ xfburn
 xfce4
 xfce4-goodies
 xpdf
-
-# Display Manager
-light-locker
-lightdm
-lightdm-gtk-greeter
-lightdm-gtk-greeter-settings
 
 # Calamares make dependencies
 dmidecode
