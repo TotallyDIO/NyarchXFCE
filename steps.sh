@@ -78,7 +78,7 @@ rm ./ezreleng/airootfs/etc/systemd/system/multi-user.target.wants/sshd.service
 rm ./ezreleng/airootfs/etc/systemd/system/multi-user.target.wants/iwd.service
 }
 
-# Add cups, display manager, haveged, NetworkManager, & reflector systemd links
+# Add cups, haveged, NetworkManager, & sddm systemd links
 addnmlinks () {
 mkdir -p ./ezreleng/airootfs/etc/systemd/system/network-online.target.wants
 mkdir -p ./ezreleng/airootfs/etc/systemd/system/multi-user.target.wants
@@ -89,12 +89,13 @@ mkdir -p ./ezreleng/airootfs/etc/systemd/system/sysinit.target.wants
 ln -sf /usr/lib/systemd/system/NetworkManager-wait-online.service ./ezreleng/airootfs/etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service
 ln -sf /usr/lib/systemd/system/NetworkManager-dispatcher.service ./ezreleng/airootfs/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
 ln -sf /usr/lib/systemd/system/NetworkManager.service ./ezreleng/airootfs/etc/systemd/system/multi-user.target.wants/NetworkManager.service
-ln -sf /usr/lib/systemd/system/reflector.service ./ezreleng/airootfs/etc/systemd/system/multi-user.target.wants/reflector.service
 ln -sf /usr/lib/systemd/system/haveged.service ./ezreleng/airootfs/etc/systemd/system/sysinit.target.wants/haveged.service
 ln -sf /usr/lib/systemd/system/cups.service ./ezreleng/airootfs/etc/systemd/system/printer.target.wants/cups.service
 ln -sf /usr/lib/systemd/system/cups.socket ./ezreleng/airootfs/etc/systemd/system/sockets.target.wants/cups.socket
 ln -sf /usr/lib/systemd/system/cups.path ./ezreleng/airootfs/etc/systemd/system/multi-user.target.wants/cups.path
-ln -sf /usr/lib/systemd/system/lightdm.service ./ezreleng/airootfs/etc/systemd/system/display-manager.service
+# ensure parent dir exists; SDDM enablement is performed later
+mkdir -p ./ezreleng/airootfs/etc/systemd/system
+ln -sf /usr/lib/systemd/system/graphical.target ./ezreleng/airootfs/etc/systemd/system/default.target
 }
 
 # Copy files to customize the ISO
