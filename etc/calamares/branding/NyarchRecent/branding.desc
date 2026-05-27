@@ -1,4 +1,4 @@
-# Ezarcher custom settings
+# Nyarch custom settings
 # SPDX-FileCopyrightText: no
 # SPDX-License-Identifier: CC0-1.0
 #
@@ -9,7 +9,7 @@
 # Additional styling can be done using the stylesheet.qss
 # file, also in the branding directory.
 ---
-componentName:  nyarch-
+componentName:  NyarchRecent
 
 
 ### WELCOME / OVERALL WORDING
@@ -122,10 +122,10 @@ navigation: widget
 # are visible as buttons there if the corresponding *show* keys
 # are set to "true" (they can also be overridden).
 strings:
-    productName:         "@{NAME}"
+    productName:         "Nyarch Linux"
     shortProductName:    nyarch
-    version:             23.11
-    shortVersion:        23.11
+    version:             26.04
+    shortVersion:        26.04
     versionedName:       Nyarch Linux
     shortVersionedName:  Nyarch Linux
     bootloaderEntryName: nyarch
@@ -180,11 +180,12 @@ images:
 # These colors can **also** be set through the stylesheet, if the
 # branding component also ships a stylesheet.qss. Then they are
 # the corresponding CSS attributes of #sidebarApp.
+
 style:
-   sidebarBackground:    "#171925"
-   sidebarText:          "#FFFFFF"
-   sidebarTextSelect:    "#171925"
-   sidebarTextHighlight: "#e32b6b"
+   SidebarBackground:    "#31261e"
+   SidebarText:          "#eddcd0"
+   SidebarTextCurrent:    "#ffdcc0"
+   SidebarBackgroundCurrent: "#6b3b00"
 
 ### SLIDESHOW
 #
