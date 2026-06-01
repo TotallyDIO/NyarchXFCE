@@ -89,13 +89,12 @@ mkdir -p ./ezreleng/airootfs/etc/systemd/system/sysinit.target.wants
 ln -sf /usr/lib/systemd/system/NetworkManager-wait-online.service ./ezreleng/airootfs/etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service
 ln -sf /usr/lib/systemd/system/NetworkManager-dispatcher.service ./ezreleng/airootfs/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
 ln -sf /usr/lib/systemd/system/NetworkManager.service ./ezreleng/airootfs/etc/systemd/system/multi-user.target.wants/NetworkManager.service
+ln -sf /usr/lib/systemd/system/reflector.service ./ezreleng/airootfs/etc/systemd/system/multi-user.target.wants/reflector.service
 ln -sf /usr/lib/systemd/system/haveged.service ./ezreleng/airootfs/etc/systemd/system/sysinit.target.wants/haveged.service
 ln -sf /usr/lib/systemd/system/cups.service ./ezreleng/airootfs/etc/systemd/system/printer.target.wants/cups.service
 ln -sf /usr/lib/systemd/system/cups.socket ./ezreleng/airootfs/etc/systemd/system/sockets.target.wants/cups.socket
 ln -sf /usr/lib/systemd/system/cups.path ./ezreleng/airootfs/etc/systemd/system/multi-user.target.wants/cups.path
-# ensure parent dir exists; SDDM enablement is performed later
-mkdir -p ./ezreleng/airootfs/etc/systemd/system
-ln -sf /usr/lib/systemd/system/graphical.target ./ezreleng/airootfs/etc/systemd/system/default.target
+ln -sf /usr/lib/systemd/system/lightdm.service ./ezreleng/airootfs/etc/systemd/system/display-manager.service
 }
 
 # Copy files to customize the ISO
@@ -144,7 +143,8 @@ storage:x:860:"${MYUSERNM}"
 optical:x:870:"${MYUSERNM}"
 sambashare:x:880:"${MYUSERNM}"
 users:x:985:"${MYUSERNM}"
-"${MYUSERNM}":x:1010:" > ./ezreleng/airootfs/etc/group
+"${MYUSERNM}":x:1010:
+autologin:x:1002:"${MYUSERNM}"" > ./ezreleng/airootfs/etc/group
 }
 
 # Create shadow file
@@ -174,7 +174,8 @@ video:!*::"${MYUSERNM}"
 storage:!*::"${MYUSERNM}"
 optical:!*::"${MYUSERNM}"
 sambashare:!*::"${MYUSERNM}"
-"${MYUSERNM}":!*::" > ./ezreleng/airootfs/etc/gshadow
+"${MYUSERNM}":!*::
+autologin:x::"${MYUSERNM}"" > ./ezreleng/airootfs/etc/gshadow
 }
 
 # Start mkarchiso
